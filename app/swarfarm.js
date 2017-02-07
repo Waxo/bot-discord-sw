@@ -5,7 +5,7 @@ const methods = {
   link: 'https://swarfarm.com/profile',
   errorMessage: 'There was a problem, nothing done',
   register(pseudo, sfAccount) {
-    swarfarmDB.add(sfAccount, pseudo.toLowerCase())
+    return swarfarmDB.add(sfAccount, pseudo.toLowerCase())
       .then(() => `${pseudo} swarfarm -> ${this.link}/${sfAccount}`)
       .catch(err => {
         logger.log('error', err);
@@ -46,7 +46,7 @@ const methods = {
       });
   },
   removeSwafarm(sfAccount) {
-    swarfarmDB.remove(sfAccount)
+    return swarfarmDB.remove(sfAccount)
       .then(() => 'Swarfarm removed')
       .catch(err => {
         logger.log('error', err);

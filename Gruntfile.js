@@ -14,11 +14,11 @@ module.exports = grunt => {
     },
     spawnProcess: {
       bot: {
-        args: ['index.js', '--color']
+        args: ['bot-discord-sw.js', '--color']
       }
     },
     xo: {
-      target: ['index.js', 'app/*.js', 'app/*/*.js']
+      target: ['bot-discord-sw.js', 'app/*.js', 'app/*/*.js']
     }
   });
 
