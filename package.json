@@ -1,0 +1,46 @@
+{
+  "name": "bot-discord-sw",
+  "version": "0.0.0",
+  "description": "This is a bot for discord, adapted for SW",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "latest",
+    "chalk": "latest",
+    "discord.js": "^11.0.0",
+    "dotenv": "^4.0.0",
+    "moment": "^2.15.2",
+    "mongoose": "^4.8.1",
+    "winston": "latest"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-spawn-process": "^0.1.0",
+    "grunt-xo": "^0.15.0",
+    "load-grunt-tasks": "^3.5.2",
+    "time-grunt": "^1.4.0"
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node"
+    ],
+    "space": 2,
+    "rules": {
+      "max-len": [
+        "error",
+        80,
+        2
+      ]
+    },
+    "ignores": [
+      "Gruntfile.js"
+    ]
+  }
+}
