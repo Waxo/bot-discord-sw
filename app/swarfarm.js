@@ -26,7 +26,7 @@ const methods = {
       });
   },
   getSwarfarm(alias) {
-    return swarfarmDB.findAlias(alias.toLocaleLowerCase())
+    return swarfarmDB.findAlias(alias.toLowerCase())
       .then(docs => {
         if (docs.length > 0) {
           const links = docs.map(doc => doc.link);

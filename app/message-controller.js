@@ -2,6 +2,8 @@ const BluebirdPromise = require('bluebird');
 const logger = require('./utils/logger');
 const swarfarmDB = require('./swarfarm');
 
+const possibleRoles = ['GB10', 'DB10', 'NB10', 'TOA', 'TOAH', 'RAID4', 'RAID5'];
+
 const availableActions = {
   ping(message) {
     message.channel.sendMessage('pong');
@@ -68,6 +70,43 @@ const availableActions = {
       message.channel.sendMessage(
         'Tu n\'as pas les badges nécessaires pour me contrôler !');
     }
+  },
+  iam(message, args) {
+    logger.log('info', `Add group`);
+    const addedRoles = [];
+    let youHacker = false;
+    args.map(g => g.toUpperCase()).forEach(role => {
+      if (possibleRoles.indexOf(role) >= 0) {
+        addedRoles.push(
+          message.guild.roles.filter(r => r.name === role).first());
+      } else {
+        youHacker = true;
+      }
+    });
+
+    message.member.addRoles(addedRoles)
+      .then(() => message.channel.sendMessage(`Roles added${(youHacker) ?
+        ', don\'t try to hack me i`ll collapse your face' : ''}`))
+      .catch(err => message.channel.sendMessage(err));
+  },
+  iamnot(message, args) {
+    logger.log('info', `Remove group`);
+    const removedRoles = [];
+    let youHacker = false;
+    args.map(g => g.toUpperCase()).forEach(role => {
+      if (possibleRoles.indexOf(role) >= 0) {
+        removedRoles.push(
+          message.guild.roles.filter(r => r.name === role).first());
+      } else {
+        youHacker = true;
+      }
+    });
+
+    message.member.removeRoles(removedRoles)
+      .then(() => message.channel.sendMessage(
+        `Roles removed${(youHacker) ?
+          ', don\'t try to hack me i`ll collapse your face' : ''}`))
+      .catch(err => message.channel.sendMessage(err));
   }
 };
 
