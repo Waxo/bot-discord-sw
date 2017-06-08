@@ -2,7 +2,7 @@ const BluebirdPromise = require('bluebird');
 const logger = require('./utils/logger');
 const swarfarmDB = require('./swarfarm');
 
-const possibleRoles = ['GB10', 'DB10', 'NB10', 'TOA', 'TOAH', 'RAID4', 'RAID5'];
+const possibleRoles = ['GB10', 'DB10', 'NB10', 'TOA', 'TOAH', 'RAID4', 'RAID5', 'RUNES'];
 
 const availableActions = {
   ping(message) {
