@@ -2,7 +2,16 @@ const BluebirdPromise = require('bluebird');
 const logger = require('./utils/logger');
 const swarfarmDB = require('./swarfarm');
 
-const possibleRoles = ['GB10', 'DB10', 'NB10', 'TOA', 'TOAH', 'RAID4', 'RAID5', 'RUNES'];
+const possibleRoles = [
+  'GB10',
+  'DB10',
+  'NB10',
+  'TOA',
+  'TOAH',
+  'RAID4',
+  'RAID5',
+  'RUNES'
+];
 
 const availableActions = {
   ping(message) {
@@ -107,6 +116,14 @@ const availableActions = {
         `Roles removed${(youHacker) ?
           ', don\'t try to hack me i`ll collapse your face' : ''}`))
       .catch(err => message.channel.sendMessage(err));
+  },
+  ehp(message, args) {
+    const msg = Number(args[0]) * (1000 + (Number(args[1]) * 3)) * 0.001;
+    message.channel.sendMessage(`${msg}ehp`);
+  },
+  ehpd(message, args) {
+    const msg = Number(args[0]) * (1000 + (Number(args[1]) * 1.5)) * 0.001;
+    message.channel.sendMessage(`${msg}ehp with break def`);
   }
 };
 
