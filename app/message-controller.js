@@ -118,11 +118,11 @@ const availableActions = {
       .catch(err => message.channel.sendMessage(err));
   },
   ehp(message, args) {
-    const msg = Number(args[0]) * (1000 + (Number(args[1]) * 3)) * 0.001;
+    const msg = Number(args[0]) * (1140 + (Number(args[1]) * 3.5)) * 0.001;
     message.channel.sendMessage(`${Math.floor(msg)} ehp`);
   },
   ehpd(message, args) {
-    const msg = Number(args[0]) * (1000 + (Number(args[1]) * 1.5)) * 0.001;
+    const msg = Number(args[0]) * (1140 + (Number(args[1]) * 1.05)) * 0.001;
     message.channel.sendMessage(`${Math.floor(msg)} ehp with break def`);
   }
 };
